@@ -1,0 +1,17 @@
+*, *::after, *::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+    outline: none;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+.test-style{
+    background-color: #ff02;
+    width: 100vw;
+    height: 100vh;
+}
