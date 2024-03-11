@@ -1,17 +1,127 @@
-*, *::after, *::before{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    min-width: 0;
-    outline: none;
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:wght@700&display=swap");
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  outline: none;
 }
 
-html{
-    font-size: 62.5%;
+html {
+  font-size: 62.5%;
 }
 
-.test-style{
-    background-color: #ff02;
-    width: 100vw;
-    height: 100vh;
+.mulish-font {
+  font-family: "Mulish", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.default-page {
+  background: linear-gradient(rgba(51, 56, 61, 1), rgba(28, 29, 32, 1));
+  width: 100vw;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.first-section {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  margin-top: 11.7rem;
+}
+
+.title {
+  font-size: 6rem;
+  color: #e0e0e0;
+}
+
+.subtitle {
+  font-size: 1.6rem;
+  color: #ffffff;
+}
+
+.formulary-login {
+  margin-top: 13.5rem;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container-inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: self-start;
+  gap: 3.3rem;
+  margin-bottom: 11.5rem;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.second-section {
+  width: 50vw;
+  background-image: url("./assets/backgroundComputer.png");
+  min-height: 100vh;
+  max-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.icon-uol{
+    margin-top: 3.2rem;
+}
+
+.second-section {
+  width: 50vw;
+  background-image: url("./assets/backgroundComputer.png");
+  min-height: 100vh;
+  max-height: 100vh;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.button {
+  background: linear-gradient(rgba(255, 45, 4, 1), rgba(193, 50, 22, 1));
+  color: #ffffff;
+  border-radius: 5rem;
+  padding-block: 1.4rem;
+  font-size: 3.2rem;
+  box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.3);
+  border: none;
+}
+
+.input {
+  border: 0.1rem solid #ffffff;
+  background-color: #26292c;
+  color: #ffffff;
+  border-radius: 5rem;
+  padding-block: 2rem;
+  padding-left: 2rem;
+  padding-right: 28.1rem;
+  font-size: 1.6rem;
+}
+
+.title-formulary {
+  color: #e0e0e0;
+  font-size: 3rem;
 }
