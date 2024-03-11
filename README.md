@@ -1,5 +1,5 @@
 
-# Projeto Login + Keep Alive - README
+# Projeto Login + Keep Alive - READM
 
 Este é o repositório do projeto "Login + Keep Alive" desenvolvido como parte do estágio na Compass UOL. Abaixo estão as informações importantes para o desenvolvimento, entrega e funcionalidades do projeto.
 
