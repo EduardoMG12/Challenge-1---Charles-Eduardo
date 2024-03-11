@@ -1,11 +1,22 @@
 
-# Projeto Login + Keep Alive - READM
+# Projeto Login + Keep Alive - README
+
+<img width="20%"  src="./imagesREADME/compassUolLogoSvg.svg"/>
 
 Este é o repositório do projeto "Login + Keep Alive" desenvolvido como parte do estágio na Compass UOL. Abaixo estão as informações importantes para o desenvolvimento, entrega e funcionalidades do projeto.
 
 ## Descrição do Projeto
 
 O projeto consiste em criar um sistema de login e dashboard com funcionalidades específicas, utilizando HTML, CSS e JS. A interface deve seguir o layout fornecido no Figma, com atenção especial à fidelidade visual (Pixel Perfect).
+
+<details>
+  <summary>Algumas imagens o projeto <img width="20" src="https://flagicons.lipis.dev/flags/4x3/br.svg"></summary>
+  <img width="40%"  src="./imagesREADME/Home.jpg"/>
+  <img width="40%"  src="./imagesREADME/Login error.jpg"/>
+  <img width="40%"  src="./imagesREADME/Login Filled.jpg"/>
+  <img width="40%"  src="./imagesREADME/Login.jpg"/>
+  <img width="40%"  src="./imagesREADME/Register.jpg"/>
+  </details>
 
 ## Desenvolvedor
 
@@ -17,7 +28,7 @@ O desenvolvedor deste projeto é:
 
 - **Rafaela Janeczk:** [sagethirteen@gmail.com](mailto:sagethirteen@gmail.com)
 - **Maithe Saldanha Ferrao:** [maithe.ferrao@compasso.com.br](mailto:maithe.ferrao@compasso.com.br)
-- **Cassio Silva Takarada:** [cassio.takarada@compasso.com.br](mailto:cassio.takarada@compasso.com.br)
+- **Cassio Silva Takarada(P.O):** [cassio.takarada@compasso.com.br](mailto:cassio.takarada@compasso.com.br)
 - **Anthoni Bortolotto Martinelli:** [anthoni.martinelli@compasso.com.br](mailto:anthoni.martinelli@compasso.com.br)
 - **Leonardo Buhring Muller:** [l.muller.dev@gmail.com](mailto:l.muller.dev@gmail.com)
 - **Gabriel Bezerra Rodrigues**: [gabriel.bezerra@compasso.com.br](mailto:gabriel.bezerra@compasso.com.br)
