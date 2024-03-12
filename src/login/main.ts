@@ -25,11 +25,21 @@ const loginFormValidation = () => {
     const passwordInputError = document.getElementById(
         "password-error"
     ) as HTMLSpanElement;
+    const messageErrorFormulary1 = document.getElementById("message-error-formulary1") as HTMLSpanElement
+    const messageErrorFormulary2 = document.getElementById("message-error-formulary2") as HTMLSpanElement
 
 
     validateInputForm(usernameInput, usernameInputError)    
     validateInputForm(userPasswordInput, passwordInputError)
 
+    if(usernameInput.value.trim().length !== 0 && userPasswordInput.value.trim().length !== 0){
+        messageErrorFormulary1.classList.add("message-error-formulary-visible")
+        messageErrorFormulary2.classList.add("message-error-formulary-visible")
+    }else{
+        messageErrorFormulary1.classList.remove("message-error-formulary-visible")
+        messageErrorFormulary2.classList.remove("message-error-formulary-visible")
+        
+    }
 };
 
 interface IValidateInputForm {

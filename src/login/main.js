@@ -9,8 +9,18 @@ var loginFormValidation = function () {
     var userPasswordInput = document.getElementById("input-password");
     var usernameInputError = document.getElementById("username-error");
     var passwordInputError = document.getElementById("password-error");
+    var messageErrorFormulary1 = document.getElementById("message-error-formulary1");
+    var messageErrorFormulary2 = document.getElementById("message-error-formulary2");
     validateInputForm(usernameInput, usernameInputError);
     validateInputForm(userPasswordInput, passwordInputError);
+    if (usernameInput.value.trim().length !== 0 && userPasswordInput.value.trim().length !== 0) {
+        messageErrorFormulary1.classList.add("message-error-formulary-visible");
+        messageErrorFormulary2.classList.add("message-error-formulary-visible");
+    }
+    else {
+        messageErrorFormulary1.classList.remove("message-error-formulary-visible");
+        messageErrorFormulary2.classList.remove("message-error-formulary-visible");
+    }
 };
 var validateInputForm = function (input, span) {
     if (input.value.trim().length === 0) {

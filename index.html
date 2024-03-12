@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projeto Login + Keep Alive</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="main.js" defer></script>
+    <title>Login | Projeto Login + Keep Alive</title>
+    <link rel="stylesheet" href="src/login/style.css" />
+    <link rel="stylesheet" href="src/reset.css" />
+    <script src="src/login/main.js" defer></script>
     <link rel="icon" type="image/x-icon" href="./assets/faviiconUol.jpg" />
   </head>
   <body>
@@ -14,7 +15,10 @@
         <div class="text-container">
           <h1 class="mulish-font title">Welcome,</h1>
           <h2 class="mulish-font subtitle">
-            To continue browsing safely, log in to the network.
+            To continue browsing safely, log in to the 
+          </h2>
+          <h2 class="mulish-font subtitle">
+            network.
           </h2>
         </div>
 
@@ -80,6 +84,10 @@
                   />
                 </svg>
               </div>
+              <div id="container-formulary">
+                <span id="message-error-formulary1" class="mulish-font message-error-formulary">Wow, invalid username or password.</span>
+                <span id="message-error-formulary2" class="mulish-font message-error-formulary">Please, try again!.</span>
+              </div>
             </div>
           </div>
           <div class="buttons-container">
@@ -91,13 +99,14 @@
             >
               Log in
             </button>
-            <a href="./src/register.html" class="button mulish-font">
+            <a href="./src/register/" class="button mulish-font">
               Register Now
             </a>
           </div>
         </form>
       </section>
       <section class="second-section backgroundComputer">
+        <a href="src/home/">
         <svg
           class="icon-uol"
           width="484"
@@ -159,6 +168,7 @@
             fill="white"
           />
         </svg>
+      </a>
       </section>
     </div>
   </body>
