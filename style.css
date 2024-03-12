@@ -20,7 +20,7 @@ html {
   font-style: normal;
 }
 
-.default-page {
+.main {
   background: linear-gradient(rgba(51, 56, 61, 1), rgba(28, 29, 32, 1));
   width: 100vw;
   max-height: 100vh;
@@ -55,12 +55,23 @@ html {
   color: #ffffff;
 }
 
-.formulary-login {
+#formulary-login {
   margin-top: 13.5rem;
   height: 40vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.title-formulary {
+  color: #e0e0e0;
+  font-size: 3rem;
+}
+
+.wrapper-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
 }
 
 .container-inputs {
@@ -70,44 +81,6 @@ html {
   align-items: self-start;
   gap: 3.3rem;
   margin-bottom: 11.5rem;
-}
-
-.buttons-container {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.second-section {
-  width: 50vw;
-  background-image: url("./assets/backgroundComputer.png");
-  min-height: 100vh;
-  max-height: 100vh;
-  display: flex;
-  justify-content: center;
-}
-
-.icon-uol{
-    margin-top: 3.2rem;
-}
-
-.second-section {
-  width: 50vw;
-  background-image: url("./assets/backgroundComputer.png");
-  min-height: 100vh;
-  max-height: 100vh;
-  background-repeat: no-repeat;
-  background-position: right;
-}
-
-.button {
-  background: linear-gradient(rgba(255, 45, 4, 1), rgba(193, 50, 22, 1));
-  color: #ffffff;
-  border-radius: 5rem;
-  padding-block: 1.4rem;
-  font-size: 3.2rem;
-  box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.3);
-  border: none;
 }
 
 .input {
@@ -121,7 +94,40 @@ html {
   font-size: 1.6rem;
 }
 
-.title-formulary {
-  color: #e0e0e0;
-  font-size: 3rem;
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.button {
+  background: linear-gradient(rgba(255, 45, 4, 1), rgba(193, 50, 22, 1));
+  color: #ffffff;
+  border-radius: 5rem;
+  padding-block: 1.4rem;
+  font-size: 3.2rem;
+  box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.3);
+  border: none;
+  text-align: center;
+  text-decoration: none;
+}
+
+.button:hover {
+  transform: scale(1.03);
+  transition: all ease-in-out 0.5s;
+}
+
+.second-section {
+  width: 50vw;
+  background-image: url("./assets/backgroundComputer.png");
+  min-height: 100vh;
+  max-height: 100vh;
+  background-repeat: no-repeat;
+  background-position: right;
+  display: flex;
+  justify-content: center;
+}
+
+.icon-uol {
+  margin-top: 3.2rem;
 }
