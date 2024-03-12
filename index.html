@@ -32,10 +32,10 @@
                   class="input mulish-font"
                   type="text"
                   placeholder="user name"
-                  required
                 />
                 <svg
                   class="icon-svg-input"
+                  id="icon-svg-user"
                   width="20"
                   height="20"
                   viewBox="0 0 20 20"
@@ -60,9 +60,9 @@
                   class="input mulish-font"
                   type="password"
                   placeholder="password"
-                  required
                 />
                 <svg
+                  id="icon-svg-password"
                   class="icon-svg-input"
                   width="20"
                   height="26"
@@ -83,7 +83,14 @@
             </div>
           </div>
           <div class="buttons-container">
-            <button type="submit" class="button mulish-font">Log in</button>
+            <button
+              type="submit"
+              class="button mulish-font"
+              id="login-form-validation"
+              onclick="loginFormValidation()"
+            >
+              Log in
+            </button>
             <a href="./src/register.html" class="button mulish-font">
               Register Now
             </a>

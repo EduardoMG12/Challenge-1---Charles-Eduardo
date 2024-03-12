@@ -8,6 +8,7 @@
   padding: 0;
   min-width: 0;
   outline: none;
+  border: none;
 }
 
 html {
@@ -76,16 +77,21 @@ html {
   position: relative;
 }
 
-.icon-svg-input{
+.icon-svg-input {
   position: absolute;
   right: -4rem;
   top: 50%;
   transform: translate(-50%, -50%);
- }
+  transition: transform 0.5s ease-in-out;
+}
 
-.error-input-mesage{
+.icon-svg-input.animationTranslateLeft {
+  transform: translate(-300%, -50%);
+}
+
+.error-input-mesage {
   position: absolute;
-  margin-right:-40rem;
+  margin-right: -40rem;
   background: linear-gradient(rgb(246, 108, 80), rgb(230, 86, 57));
   color: #000000;
   width: fit-content;
@@ -120,6 +126,15 @@ html {
   padding-left: 2rem;
   padding-right: 28.1rem;
   font-size: 1.6rem;
+}
+
+.input-error {
+  border: 0.1rem solid #e9b425;
+}
+
+.label-error-active {
+  display: block;
+  visibility: visible;
 }
 
 .buttons-container {
