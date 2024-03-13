@@ -9,6 +9,12 @@
   min-width: 0;
   outline: none;
   border: none;
+
+}
+
+body{
+  background: linear-gradient(rgba(51, 56, 61, 1), rgba(28, 29, 32, 1));
+  min-height: 100vh;
 }
 
 html {
