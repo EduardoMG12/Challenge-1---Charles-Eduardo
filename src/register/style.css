@@ -68,6 +68,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 2.5rem;
   }
 
 
@@ -101,4 +102,30 @@
   color: rgba(242, 46, 7, 1);
   text-decoration: none;
   font-size: 1.6rem;
+}
+.input[type="date"]{
+  border: 0.1rem solid #ffffff;
+  background-color: #26292c;
+  color: #ffffff;
+  border-radius: 5rem;
+  padding-block: 2rem;
+  padding-left: 2rem;
+  padding-right: 28.1rem;
+  font-size: 1.6rem;
+  flex: 1;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #26292c inset;
+}
+
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: #ffffff;
 }
