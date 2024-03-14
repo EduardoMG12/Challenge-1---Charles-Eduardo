@@ -89,16 +89,17 @@
 
 .error-input-mesage {
   position: absolute;
-  margin-right: -40rem;
   background: linear-gradient(rgb(246, 108, 80), rgb(230, 86, 57));
+  right: -62rem;
   color: #000000;
-  width: fit-content;
+  width: 40rem;
   text-align: end;
   padding-block: 1.5rem;
   padding-inline: 2.5rem;
   font-size: 2rem;
   font-weight: bold;
-  border-radius: 50px;
+  border-radius: 2rem;
+  text-align: center;
   align-self: flex-end;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -124,6 +125,10 @@
   padding-left: 2rem;
   padding-right: 28.1rem;
   font-size: 1.6rem;
+}
+
+.input:focus, .input:active {
+  background-color: #26292c;  
 }
 
 .input-error {
