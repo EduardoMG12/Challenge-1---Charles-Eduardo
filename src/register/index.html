@@ -20,6 +20,10 @@
 
         <form action="" id="formulary-container-inputs-register">
           <div class="wrapper-input-register">
+            <span
+              id="firstname-error"
+              class="error-input-mesage mulish-font"
+            ></span>
             <label for="first-name" class="label-input mulish-font">
               first name
             </label>
@@ -32,6 +36,10 @@
             />
           </div>
           <div class="wrapper-input-register">
+            <span
+              id="lastname-error"
+              class="error-input-mesage mulish-font"
+            ></span>
             <label for="last-name" class="label-input mulish-font">
               last name
             </label>
@@ -43,13 +51,17 @@
               id="last-name"
             />
           </div>
-          <div class="wrapper-input-register">
+          <div class="wrapper-input-register mulish-font">
+            <span
+              id="birthdate-error"
+              class="error-input-mesage mulish-font"
+            ></span>
             <label for="birth-date" class="label-input mulish-font">
               birth date
             </label>
             <input
-            placeholder="MM/DD/YYYY"
-              type="text"
+              placeholder="MM/DD/YYYY"
+              type="date"
               class="input mulish-font"
               name=""
               id="birth-date"
@@ -59,17 +71,35 @@
             <label for="country" class="label-input mulish-font">
               Country
             </label>
-            <input 
-            placeholder="Your Country"
-            type="text" class="input mulish-font" name="" id="country" />
+            <input
+              placeholder="Your Country"
+              maxlength="2"
+              type="text"
+              class="input mulish-font"
+              name=""
+              id="country"
+            />
+            <span
+              id="country-error"
+              class="error-input-mesage mulish-font"
+            ></span>
           </div>
           <div class="wrapper-input-register">
+            <span id="city-error" class="error-input-mesage mulish-font"></span>
             <label for="city" class="label-input mulish-font"> City </label>
-            <input type="text"
-            placeholder="Your City"
-            class="input mulish-font" name="" id="city" />
+            <input
+              type="text"
+              placeholder="Your City"
+              class="input mulish-font"
+              name=""
+              id="city"
+            />
           </div>
           <div class="wrapper-input-register">
+            <span
+              id="email-error"
+              class="error-input-mesage mulish-font"
+            ></span>
             <label for="e-mail" class="label-input mulish-font"> e-mail </label>
             <input
               type="text"
@@ -79,13 +109,17 @@
               id="e-mail"
             />
           </div>
+          <span
+            id="password-error"
+            class="error-input-mesage mulish-font"
+          ></span>
           <div class="wrapper-input-register">
             <label for="password" class="label-input mulish-font">
               password
             </label>
             <input
-            placeholder="Your password"
-              type="text"
+              placeholder="Your password"
+              type="password"
               class="input mulish-font"
               name=""
               id="password"
@@ -96,16 +130,25 @@
               password
             </label>
             <input
-              type="text"
+              type="password"
               class="input mulish-font"
               name=""
               placeholder="Comfirm your password"
               id="repeat-password"
             />
+            <span
+              id="confirm-password-error"
+              class="error-input-mesage mulish-font"
+            ></span>
           </div>
           <div class="container-button-send-form-register">
-            <button type="submit" class="button-send-form-register">Register Now</button>
-            <p id="message-register-send-you-login" class="mulish-font">Already have an account? <a href="/" class="mulish-font">Log in here.</a></p>
+            <button type="submit" class="button-send-form-register">
+              Register Now
+            </button>
+            <p id="message-register-send-you-login" class="mulish-font">
+              Already have an account?
+              <a href="/" class="mulish-font">Log in here.</a>
+            </p>
           </div>
         </form>
       </section>
