@@ -1,5 +1,4 @@
 // remember i will implement localStorage in login window with username and email
-// rememeber translate errors message to english
 // remember implement key enter for send form and will fix svg animation to login window
 
 let formularyContainer = document.querySelector("#formulary-container-inputs-register")! as HTMLFormElement
@@ -62,12 +61,12 @@ function formularyRegisterValidation(): boolean {
 function isValidInput(input: HTMLInputElement, span: HTMLSpanElement): boolean {
 
     if (input.value.trim().length === 0) {
-        showLabelError(span, "este campo é obrigatoro")
+        showLabelError(span, "This field is mandatory.")
         return false
     }
     
     else if (input.value.trim() !== input.value){ 
-        showLabelError(span, "não se pode ter espaço antes e nem depois desse campo")
+        showLabelError(span, "This field cannot have blank spaces either before or after its value.")
         return false
     }
     hiddenLabelError(span)
@@ -79,10 +78,10 @@ function isValidPassword(password: HTMLInputElement, passwordError: HTMLSpanElem
 
     if (!(isValidInput(password, passwordError) && isValidInput(confirmPassword, confirmPasswordError))) false
     if (!(password.value === confirmPassword.value)) {
-        showLabelError(confirmPasswordError, "as senhas não coincidem")
+        showLabelError(confirmPasswordError, "The passwords don't match.")
         return false}
     if ((8 > password.value.length || password.value.length > 128)) {
-        showLabelError(confirmPasswordError, "a sua senha deve ter no mínimo 8 caracteres e no máximo 128 caracteres")    
+        showLabelError(confirmPasswordError, "Your password must have a minimum of 8 characters and a maximum of 128 characters.")    
         return false
     }
     hiddenLabelError(passwordError)
@@ -96,8 +95,8 @@ function isValidName(firstName: HTMLInputElement, firstNameError: HTMLSpanElemen
 
     if (!(isValidInput(firstName, firstNameError) && isValidInput(lastName, lastNameError))) false
     if (!(regexJustLetters.test(firstName.value) && regexJustLetters.test(lastName.value))){ 
-        showLabelError(firstNameError, "O seu nome de usuário não pode ter números e nem caracteres especiais.")
-        showLabelError(lastNameError, "O seu nome de usuário não pode ter números e nem caracteres especiais.")
+        showLabelError(firstNameError, "Your name must not contain any numbers or special characters.")
+        showLabelError(lastNameError, "Your name must not contain any numbers or special characters.")
         return false
     }
     hiddenLabelError(firstNameError)
@@ -110,11 +109,11 @@ function isValidDate(birthDate: HTMLInputElement, birthDateError: HTMLSpanElemen
     const regexDate = /\d{2}\/\d{2}\/\d{4}/
     if (!(isValidInput(birthDate, birthDateError))) false;
     if (!(new Date(birthDate.value).toLocaleDateString('pt-BR'))) {
-        showLabelError(birthDateError, "Esta data não é válida")    
+        showLabelError(birthDateError, "This date is invalid")    
         return false
     }
     if (!(regexDate.test(birthDate.value))) {
-        showLabelError(birthDateError, "Esta data não é existe")    
+        showLabelError(birthDateError, "There is no such date")    
         return false
     }
     hiddenLabelError(birthDateError)
@@ -126,7 +125,7 @@ function isValidEmail(email: HTMLInputElement, emailError: HTMLSpanElement): boo
     const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$/
 
     if (!(regexEmail.test(email.value))){
-        showLabelError(emailError, "Este email não é valido")
+        showLabelError(emailError, "This email is not valid")
         return false
     }
     
@@ -142,11 +141,11 @@ function isValidCountryAndCity(country: HTMLInputElement, countryError: HTMLSpan
     if (!(isValidInput(city, cityError))) false;
     if (!(isValidInput(country, countryError))) false;
     if (!(regexCountry.test(country.value.toUpperCase()))){
-        showLabelError(countryError, "Esta estado não existe")    
+        showLabelError(countryError, "The state must have 2 letters")    
         return false
     }
     if (!(regexCity.test(city.value))){
-        showLabelError(cityError, "Esta cidade não existe")    
+        showLabelError(cityError, "This city doesn't exist")    
         return false
     }
 
