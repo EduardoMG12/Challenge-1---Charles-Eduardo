@@ -32,7 +32,6 @@ interface IUser {
 }
 
 document!.onkeydown = (event) => {
-    console.log(event.code)
     if (event.code === "Enter") {
         event.preventDefault();
         if (formularyRegisterValidation()) {
@@ -56,7 +55,6 @@ document!.onkeydown = (event) => {
 formularyContainer!.onsubmit = (event: Event) => {
     event.preventDefault();
 
-    console.log(formularyRegisterValidation())
     if (formularyRegisterValidation()) {
 
         const userDataRegistered: IUser = {
@@ -116,7 +114,6 @@ function isValidPassword(password: HTMLInputElement, passwordError: HTMLSpanElem
     }
     hiddenLabelError(passwordError)
     hiddenLabelError(confirmPasswordError)
-    console.log("isValidPassword")
     return true
 }
 
@@ -131,7 +128,6 @@ function isValidName(firstName: HTMLInputElement, firstNameError: HTMLSpanElemen
     }
     hiddenLabelError(firstNameError)
     hiddenLabelError(lastNameError)
-    console.log("isValidName")
     return true
 }
 
@@ -144,11 +140,9 @@ function isValidDate(birthDate: HTMLInputElement, birthDateError: HTMLSpanElemen
     }
     if (!regexDate.test(birthDate.value)) {
         showLabelError(birthDateError, `There is no such date`)
-        console.log(birthDate.value)
         return false
     }
     hiddenLabelError(birthDateError)
-    console.log("isValidDate")
     return true
 }
 
@@ -161,7 +155,6 @@ function isValidEmail(email: HTMLInputElement, emailError: HTMLSpanElement): boo
     }
 
     hiddenLabelError(emailError)
-    console.log("isValidEmail")
     return true
 }
 
@@ -182,7 +175,6 @@ function isValidCountryAndCity(country: HTMLInputElement, countryError: HTMLSpan
 
     hiddenLabelError(countryError)
     hiddenLabelError(cityError)
-    console.log("isValidCountryCity")
     return true
 }
 

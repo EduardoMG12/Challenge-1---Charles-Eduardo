@@ -11,7 +11,6 @@ formularyLogin.addEventListener("submit", function (event) {
     event.preventDefault();
 });
 document.onkeydown = function (event) {
-    console.log(event.code);
     if (event.code === "Enter") {
         loginFormValidation();
     }
@@ -81,11 +80,6 @@ function validateLocalStorage() {
     var userRegistred = localStorage.getItem("user");
     if (userRegistred) {
         var recoveryUserRegistred = JSON.parse(userRegistred);
-        console.log(localStorage.getItem("firstName"));
-        console.log(recoveryUserRegistred.firstName);
-        console.log(recoveryUserRegistred.lastName);
-        console.log(recoveryUserRegistred.email);
-        console.log(recoveryUserRegistred.password);
         login(recoveryUserRegistred);
     }
 }

@@ -18,7 +18,6 @@ var emailError = document.getElementById("email-error");
 var passwordError = document.getElementById("password-error");
 var confirmPasswordError = document.getElementById("confirm-password-error");
 document.onkeydown = function (event) {
-    console.log(event.code);
     if (event.code === "Enter") {
         event.preventDefault();
         if (formularyRegisterValidation()) {
@@ -38,7 +37,6 @@ document.onkeydown = function (event) {
 };
 formularyContainer.onsubmit = function (event) {
     event.preventDefault();
-    console.log(formularyRegisterValidation());
     if (formularyRegisterValidation()) {
         var userDataRegistered = {
             firstName: firstNameInput.value,
@@ -86,7 +84,6 @@ function isValidPassword(password, passwordError, confirmPassword, confirmPasswo
     }
     hiddenLabelError(passwordError);
     hiddenLabelError(confirmPasswordError);
-    console.log("isValidPassword");
     return true;
 }
 function isValidName(firstName, firstNameError, lastName, lastNameError) {
@@ -100,7 +97,6 @@ function isValidName(firstName, firstNameError, lastName, lastNameError) {
     }
     hiddenLabelError(firstNameError);
     hiddenLabelError(lastNameError);
-    console.log("isValidName");
     return true;
 }
 function isValidDate(birthDate, birthDateError) {
@@ -113,11 +109,9 @@ function isValidDate(birthDate, birthDateError) {
     }
     if (!regexDate.test(birthDate.value)) {
         showLabelError(birthDateError, "There is no such date");
-        console.log(birthDate.value);
         return false;
     }
     hiddenLabelError(birthDateError);
-    console.log("isValidDate");
     return true;
 }
 function isValidEmail(email, emailError) {
@@ -127,7 +121,6 @@ function isValidEmail(email, emailError) {
         return false;
     }
     hiddenLabelError(emailError);
-    console.log("isValidEmail");
     return true;
 }
 function isValidCountryAndCity(country, countryError, city, cityError) {
@@ -147,7 +140,6 @@ function isValidCountryAndCity(country, countryError, city, cityError) {
     }
     hiddenLabelError(countryError);
     hiddenLabelError(cityError);
-    console.log("isValidCountryCity");
     return true;
 }
 function showLabelError(span, message) {
