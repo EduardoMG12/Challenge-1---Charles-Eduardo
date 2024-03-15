@@ -1,5 +1,5 @@
 // remember i will implement localStorage in login window with username and email
-// remember implement key enter for send form and will fix svg animation to login window
+// fix svg animation to login window
 
 let formularyContainer = document.querySelector("#formulary-container-inputs-register")! as HTMLFormElement
 
@@ -31,6 +31,28 @@ interface IUser {
     password: string
 }
 
+document!.onkeydown =(event) =>{
+    console.log(event.code)
+    if (event.code === "Enter") { 
+        event.preventDefault(); 
+        if (formularyRegisterValidation()) {
+
+            const userDataRegistered: IUser = {
+                firstName: firstNameInput.value,
+                lastName: lastNameInput.value,
+                birthDate: new Date(birthDateInput.value),
+                country: countryInput.value,
+                city: cityInput.value,
+                email: emailInput.value,
+                password: passwordInput.value,
+    
+            }
+            setLocalStorage("user" , userDataRegistered)
+            window.location.href = "/"
+        }
+    }
+}
+
 formularyContainer!.onsubmit = (event: Event) => {
     event.preventDefault();
 
@@ -47,10 +69,17 @@ formularyContainer!.onsubmit = (event: Event) => {
             password: passwordInput.value,
 
         }
-        localStorage.clear()
-        localStorage.setItem("user", JSON.stringify(userDataRegistered))
+        setLocalStorage("user" , userDataRegistered)
         window.location.href = "/"
     }
+}
+
+
+
+
+function setLocalStorage(key: string, value: any){
+    localStorage.clear()
+    localStorage.setItem(key, JSON.stringify(value))
 }
 function formularyRegisterValidation(): boolean {
     const functionArray = [isValidName(firstNameInput, firstNameError, lastNameInput, lastNameError), isValidDate(birthDateInput, birthDateError), isValidCountryAndCity(countryInput, countryError, cityInput, cityError),  isValidEmail(emailInput, emailError), isValidPassword(passwordInput, passwordError, repeatPasswordInput, confirmPasswordError)] 
@@ -106,14 +135,15 @@ function isValidName(firstName: HTMLInputElement, firstNameError: HTMLSpanElemen
 }
 
 function isValidDate(birthDate: HTMLInputElement, birthDateError: HTMLSpanElement): boolean {
-    const regexDate = /\d{2}\/\d{2}\/\d{4}/
+    const regexDate = /\d{4}\-\d{2}\-\d{2}/
     if (!(isValidInput(birthDate, birthDateError))) false;
-    if (!(new Date(birthDate.value).toLocaleDateString('pt-BR'))) {
+    if (!(new Date(birthDate.value).toLocaleDateString('en-US'))) {
         showLabelError(birthDateError, "This date is invalid")    
         return false
     }
-    if (!(regexDate.test(birthDate.value))) {
-        showLabelError(birthDateError, "There is no such date")    
+    if (!regexDate.test(birthDate.value)) {
+        showLabelError(birthDateError, `There is no such date`)    
+        console.log(birthDate.value)
         return false
     }
     hiddenLabelError(birthDateError)

@@ -1,5 +1,5 @@
 // remember i will implement localStorage in login window with username and email
-// remember implement key enter for send form and will fix svg animation to login window
+// fix svg animation to login window
 var formularyContainer = document.querySelector("#formulary-container-inputs-register");
 var firstNameInput = document.getElementById("first-name");
 var lastNameInput = document.getElementById("last-name");
@@ -17,6 +17,25 @@ var cityError = document.getElementById("city-error");
 var emailError = document.getElementById("email-error");
 var passwordError = document.getElementById("password-error");
 var confirmPasswordError = document.getElementById("confirm-password-error");
+document.onkeydown = function (event) {
+    console.log(event.code);
+    if (event.code === "Enter") {
+        event.preventDefault();
+        if (formularyRegisterValidation()) {
+            var userDataRegistered = {
+                firstName: firstNameInput.value,
+                lastName: lastNameInput.value,
+                birthDate: new Date(birthDateInput.value),
+                country: countryInput.value,
+                city: cityInput.value,
+                email: emailInput.value,
+                password: passwordInput.value,
+            };
+            setLocalStorage("user", userDataRegistered);
+            window.location.href = "/";
+        }
+    }
+};
 formularyContainer.onsubmit = function (event) {
     event.preventDefault();
     console.log(formularyRegisterValidation());
@@ -30,11 +49,14 @@ formularyContainer.onsubmit = function (event) {
             email: emailInput.value,
             password: passwordInput.value,
         };
-        localStorage.clear();
-        localStorage.setItem("user", JSON.stringify(userDataRegistered));
+        setLocalStorage("user", userDataRegistered);
         window.location.href = "/";
     }
 };
+function setLocalStorage(key, value) {
+    localStorage.clear();
+    localStorage.setItem(key, JSON.stringify(value));
+}
 function formularyRegisterValidation() {
     var functionArray = [isValidName(firstNameInput, firstNameError, lastNameInput, lastNameError), isValidDate(birthDateInput, birthDateError), isValidCountryAndCity(countryInput, countryError, cityInput, cityError), isValidEmail(emailInput, emailError), isValidPassword(passwordInput, passwordError, repeatPasswordInput, confirmPasswordError)];
     return functionArray.every(function (valor) { return valor; });
@@ -82,15 +104,16 @@ function isValidName(firstName, firstNameError, lastName, lastNameError) {
     return true;
 }
 function isValidDate(birthDate, birthDateError) {
-    var regexDate = /\d{2}\/\d{2}\/\d{4}/;
+    var regexDate = /\d{4}\-\d{2}\-\d{2}/;
     if (!(isValidInput(birthDate, birthDateError)))
         false;
-    if (!(new Date(birthDate.value).toLocaleDateString('pt-BR'))) {
+    if (!(new Date(birthDate.value).toLocaleDateString('en-US'))) {
         showLabelError(birthDateError, "This date is invalid");
         return false;
     }
-    if (!(regexDate.test(birthDate.value))) {
+    if (!regexDate.test(birthDate.value)) {
         showLabelError(birthDateError, "There is no such date");
+        console.log(birthDate.value);
         return false;
     }
     hiddenLabelError(birthDateError);
