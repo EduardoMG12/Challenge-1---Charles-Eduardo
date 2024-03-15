@@ -1,4 +1,3 @@
-// remember fix error span: i don't see spans together
 // remember i will implement localStorage in login window with username and email
 // rememeber translate errors message to english
 // remember implement key enter for send form and will fix svg animation to login window
@@ -54,14 +53,10 @@ formularyContainer!.onsubmit = (event: Event) => {
         window.location.href = "/"
     }
 }
-
 function formularyRegisterValidation(): boolean {
-    if (!(isValidName(firstNameInput, firstNameError, lastNameInput, lastNameError) && isValidDate(birthDateInput, birthDateError) && isValidCountryAndCity(countryInput, countryError, cityInput, cityError) &&  isValidEmail(emailInput, emailError) && isValidPassword(passwordInput, passwordError, repeatPasswordInput, confirmPasswordError))){ 
-        console.log("passei no false")
-        return false
-    }
-    console.log("passei no true")
-    return true
+    const functionArray = [isValidName(firstNameInput, firstNameError, lastNameInput, lastNameError), isValidDate(birthDateInput, birthDateError), isValidCountryAndCity(countryInput, countryError, cityInput, cityError),  isValidEmail(emailInput, emailError), isValidPassword(passwordInput, passwordError, repeatPasswordInput, confirmPasswordError)] 
+
+    return functionArray.every((valor) => valor)
 }
 
 function isValidInput(input: HTMLInputElement, span: HTMLSpanElement): boolean {
@@ -112,9 +107,14 @@ function isValidName(firstName: HTMLInputElement, firstNameError: HTMLSpanElemen
 }
 
 function isValidDate(birthDate: HTMLInputElement, birthDateError: HTMLSpanElement): boolean {
+    const regexDate = /\d{2}\/\d{2}\/\d{4}/
     if (!(isValidInput(birthDate, birthDateError))) false;
     if (!(new Date(birthDate.value).toLocaleDateString('pt-BR'))) {
         showLabelError(birthDateError, "Esta data não é válida")    
+        return false
+    }
+    if (!(regexDate.test(birthDate.value))) {
+        showLabelError(birthDateError, "Esta data não é existe")    
         return false
     }
     hiddenLabelError(birthDateError)

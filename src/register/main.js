@@ -1,3 +1,6 @@
+// remember i will implement localStorage in login window with username and email
+// rememeber translate errors message to english
+// remember implement key enter for send form and will fix svg animation to login window
 var formularyContainer = document.querySelector("#formulary-container-inputs-register");
 var firstNameInput = document.getElementById("first-name");
 var lastNameInput = document.getElementById("last-name");
@@ -31,18 +34,11 @@ formularyContainer.onsubmit = function (event) {
         localStorage.clear();
         localStorage.setItem("user", JSON.stringify(userDataRegistered));
         window.location.href = "/";
-        // remember fix errors span don't visual
-        // remember implementation localStorage in login window
-        // rememeber translate errors message to english
     }
 };
 function formularyRegisterValidation() {
-    if (!(isValidName(firstNameInput, firstNameError, lastNameInput, lastNameError) && isValidDate(birthDateInput, birthDateError) && isValidCountryAndCity(countryInput, countryError, cityInput, cityError) && isValidEmail(emailInput, emailError) && isValidPassword(passwordInput, passwordError, repeatPasswordInput, confirmPasswordError))) {
-        console.log("passei no false");
-        return false;
-    }
-    console.log("passei no true");
-    return true;
+    var functionArray = [isValidName(firstNameInput, firstNameError, lastNameInput, lastNameError), isValidDate(birthDateInput, birthDateError), isValidCountryAndCity(countryInput, countryError, cityInput, cityError), isValidEmail(emailInput, emailError), isValidPassword(passwordInput, passwordError, repeatPasswordInput, confirmPasswordError)];
+    return functionArray.every(function (valor) { return valor; });
 }
 function isValidInput(input, span) {
     if (input.value.trim().length === 0) {
@@ -87,10 +83,15 @@ function isValidName(firstName, firstNameError, lastName, lastNameError) {
     return true;
 }
 function isValidDate(birthDate, birthDateError) {
+    var regexDate = /\d{2}\/\d{2}\/\d{4}/;
     if (!(isValidInput(birthDate, birthDateError)))
         false;
     if (!(new Date(birthDate.value).toLocaleDateString('pt-BR'))) {
         showLabelError(birthDateError, "Esta data não é válida");
+        return false;
+    }
+    if (!(regexDate.test(birthDate.value))) {
+        showLabelError(birthDateError, "Esta data não é existe");
         return false;
     }
     hiddenLabelError(birthDateError);
