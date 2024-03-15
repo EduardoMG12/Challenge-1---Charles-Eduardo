@@ -1,6 +1,3 @@
-// remember i will implement localStorage in login window with username and email
-// fix svg animation to login window
-
 let formularyContainer = document.querySelector("#formulary-container-inputs-register")! as HTMLFormElement
 
 let firstNameInput = document.getElementById("first-name") as HTMLInputElement

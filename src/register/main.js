@@ -1,5 +1,3 @@
-// remember i will implement localStorage in login window with username and email
-// fix svg animation to login window
 var formularyContainer = document.querySelector("#formulary-container-inputs-register");
 var firstNameInput = document.getElementById("first-name");
 var lastNameInput = document.getElementById("last-name");

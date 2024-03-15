@@ -65,16 +65,16 @@ function hiddenErroInput(input: HTMLInputElement, span?: HTMLSpanElement) {
 }
 
 const validateInputForm = (input: HTMLInputElement, span?: HTMLSpanElement) => {
-    if (input.value.trim().length !== input.value.length) { // erro existem espacos antes ou depois do dado
-        showErroInput(input, "O campo nao pode possuir espacos ou pontos", span)
+    if (input.value.trim().length !== input.value.length) { 
+        showErroInput(input, "The field must not contain any spaces before or after the value", span)
         return false
     }
-    if (input.value.trim().length == 0) { // o campo esta vazio
+    if (input.value.trim().length == 0) {
         showErroInput(input, "required field", span)
         return false
     }
-    if (input.value.trim().length !== input.value.length) { // nao existe este usuario/senha
-        showErroInput(input, "", span)
+    if (input.value.trim().length !== input.value.length) {
+        showErroInput(input, "This username/password is incorrect", span)
         return false
     }
     else {
@@ -88,7 +88,7 @@ function animationSvgOnTranslateLeft(elementFocus: string, nextElement: string) 
     const elementAnimated = document.getElementById(nextElement) as HTMLElement
 
     if (!elementWithFocus || !elementAnimated) {
-        console.error('Elementos não encontrados');
+        console.error('Elements not found');
         return;
     }
 
