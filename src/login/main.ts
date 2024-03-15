@@ -26,16 +26,16 @@ formularyLogin.addEventListener("submit", (event: Event) => {
 
 });
 
-document!.onkeydown =(event) =>{
+document!.onkeydown = (event) => {
     console.log(event.code)
-    if (event.code === "Enter") { 
+    if (event.code === "Enter") {
         loginFormValidation()
     }
 }
 
 
 function loginFormValidation() {
-     validateLocalStorage()
+    validateLocalStorage()
 };
 
 interface IValidateInputForm {
@@ -75,7 +75,7 @@ const validateInputForm = (input: HTMLInputElement, span?: HTMLSpanElement) => {
         return false
     }
     if (input.value.trim().length !== input.value.length) { // nao existe este usuario/senha
-        showErroInput(input, "",  span)
+        showErroInput(input, "", span)
         return false
     }
     else {
@@ -139,12 +139,12 @@ function login(recoveryUserRegistred: IUser) {
                 messageErrorFormulary2.classList.remove("message-error-formulary-visible")
                 window.location.href = "/src/home/index.html"
             }
-            if((usernameInput.value === "") && (userPasswordInput.value === "")){
+            if ((usernameInput.value === "") && (userPasswordInput.value === "")) {
                 messageErrorFormulary1.classList.remove("message-error-formulary-visible")
                 messageErrorFormulary2.classList.remove("message-error-formulary-visible")
-                
+
             }
-            
+
             else {
                 messageErrorFormulary1.classList.add("message-error-formulary-visible")
                 messageErrorFormulary2.classList.remove("message-error-formulary-visible")

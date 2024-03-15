@@ -31,10 +31,10 @@ interface IUser {
     password: string
 }
 
-document!.onkeydown =(event) =>{
+document!.onkeydown = (event) => {
     console.log(event.code)
-    if (event.code === "Enter") { 
-        event.preventDefault(); 
+    if (event.code === "Enter") {
+        event.preventDefault();
         if (formularyRegisterValidation()) {
 
             const userDataRegistered: IUser = {
@@ -45,9 +45,9 @@ document!.onkeydown =(event) =>{
                 city: cityInput.value,
                 email: emailInput.value,
                 password: passwordInput.value,
-    
+
             }
-            setLocalStorage("user" , userDataRegistered)
+            setLocalStorage("user", userDataRegistered)
             window.location.href = "/"
         }
     }
@@ -69,7 +69,7 @@ formularyContainer!.onsubmit = (event: Event) => {
             password: passwordInput.value,
 
         }
-        setLocalStorage("user" , userDataRegistered)
+        setLocalStorage("user", userDataRegistered)
         window.location.href = "/"
     }
 }
@@ -77,12 +77,12 @@ formularyContainer!.onsubmit = (event: Event) => {
 
 
 
-function setLocalStorage(key: string, value: any){
+function setLocalStorage(key: string, value: any) {
     localStorage.clear()
     localStorage.setItem(key, JSON.stringify(value))
 }
 function formularyRegisterValidation(): boolean {
-    const functionArray = [isValidName(firstNameInput, firstNameError, lastNameInput, lastNameError), isValidDate(birthDateInput, birthDateError), isValidCountryAndCity(countryInput, countryError, cityInput, cityError),  isValidEmail(emailInput, emailError), isValidPassword(passwordInput, passwordError, repeatPasswordInput, confirmPasswordError)] 
+    const functionArray = [isValidName(firstNameInput, firstNameError, lastNameInput, lastNameError), isValidDate(birthDateInput, birthDateError), isValidCountryAndCity(countryInput, countryError, cityInput, cityError), isValidEmail(emailInput, emailError), isValidPassword(passwordInput, passwordError, repeatPasswordInput, confirmPasswordError)]
 
     return functionArray.every((valor) => valor)
 }
@@ -93,8 +93,8 @@ function isValidInput(input: HTMLInputElement, span: HTMLSpanElement): boolean {
         showLabelError(span, "This field is mandatory.")
         return false
     }
-    
-    else if (input.value.trim() !== input.value){ 
+
+    else if (input.value.trim() !== input.value) {
         showLabelError(span, "This field cannot have blank spaces either before or after its value.")
         return false
     }
@@ -108,9 +108,10 @@ function isValidPassword(password: HTMLInputElement, passwordError: HTMLSpanElem
     if (!(isValidInput(password, passwordError) && isValidInput(confirmPassword, confirmPasswordError))) false
     if (!(password.value === confirmPassword.value)) {
         showLabelError(confirmPasswordError, "The passwords don't match.")
-        return false}
+        return false
+    }
     if ((8 > password.value.length || password.value.length > 128)) {
-        showLabelError(confirmPasswordError, "Your password must have a minimum of 8 characters and a maximum of 128 characters.")    
+        showLabelError(confirmPasswordError, "Your password must have a minimum of 8 characters and a maximum of 128 characters.")
         return false
     }
     hiddenLabelError(passwordError)
@@ -123,7 +124,7 @@ function isValidName(firstName: HTMLInputElement, firstNameError: HTMLSpanElemen
     const regexJustLetters = /^[a-zA-Z]+$/i
 
     if (!(isValidInput(firstName, firstNameError) && isValidInput(lastName, lastNameError))) false
-    if (!(regexJustLetters.test(firstName.value) && regexJustLetters.test(lastName.value))){ 
+    if (!(regexJustLetters.test(firstName.value) && regexJustLetters.test(lastName.value))) {
         showLabelError(firstNameError, "Your name must not contain any numbers or special characters.")
         showLabelError(lastNameError, "Your name must not contain any numbers or special characters.")
         return false
@@ -138,11 +139,11 @@ function isValidDate(birthDate: HTMLInputElement, birthDateError: HTMLSpanElemen
     const regexDate = /\d{4}\-\d{2}\-\d{2}/
     if (!(isValidInput(birthDate, birthDateError))) false;
     if (!(new Date(birthDate.value).toLocaleDateString('en-US'))) {
-        showLabelError(birthDateError, "This date is invalid")    
+        showLabelError(birthDateError, "This date is invalid")
         return false
     }
     if (!regexDate.test(birthDate.value)) {
-        showLabelError(birthDateError, `There is no such date`)    
+        showLabelError(birthDateError, `There is no such date`)
         console.log(birthDate.value)
         return false
     }
@@ -154,13 +155,13 @@ function isValidDate(birthDate: HTMLInputElement, birthDateError: HTMLSpanElemen
 function isValidEmail(email: HTMLInputElement, emailError: HTMLSpanElement): boolean {
     const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$/
 
-    if (!(regexEmail.test(email.value))){
+    if (!(regexEmail.test(email.value))) {
         showLabelError(emailError, "This email is not valid")
         return false
     }
-    
-        hiddenLabelError(emailError)
-        console.log("isValidEmail")
+
+    hiddenLabelError(emailError)
+    console.log("isValidEmail")
     return true
 }
 
@@ -170,12 +171,12 @@ function isValidCountryAndCity(country: HTMLInputElement, countryError: HTMLSpan
 
     if (!(isValidInput(city, cityError))) false;
     if (!(isValidInput(country, countryError))) false;
-    if (!(regexCountry.test(country.value.toUpperCase()))){
-        showLabelError(countryError, "The state must have 2 letters")    
+    if (!(regexCountry.test(country.value.toUpperCase()))) {
+        showLabelError(countryError, "The state must have 2 letters")
         return false
     }
-    if (!(regexCity.test(city.value))){
-        showLabelError(cityError, "This city doesn't exist")    
+    if (!(regexCity.test(city.value))) {
+        showLabelError(cityError, "This city doesn't exist")
         return false
     }
 
