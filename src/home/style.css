@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    font-family: "Roboto", sans-serif;
+}
+
+main{
+    background: linear-gradient(rgba(255, 255, 255, 1), rgba(240, 240, 240, 1));
+    width: 100vw;
+    max-width: 100%;
+    min-height: 100vh;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding-block: 4rem;
+    padding-top: 2.5rem;
+}
+
+.hours-a-clock{
+    font-size: 14.4rem;
+    line-height: 18.2rem;
+}
+
+.container-content{
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+}
+
+.container-texts{
+    display: flex;
+    align-self: self-start;
+    flex-direction: column;
+    align-items: end;
+    margin-right: 13.4rem;
+    margin-top: 16.6rem;
+}
+
+.red-text-h3{
+    color: rgba(193, 45, 24, 1);
+    font-size: 6.4rem;
+    line-height: 8.1rem;
+}
+
+.red-text-h3:first-child{
+    color: rgba(193, 45, 24, 1);
+    font-size: 3.6rem;
+    line-height: 4.5rem;
+}
+
+.black-text-p{
+    font-size: 2.4rem;
+    line-height: 3.04rem;
+}
+
+.footer{
+    background: linear-gradient(rgba(33, 34, 33, 1), rgba(28, 29, 32, 1));
+    color: rgba(255, 255, 255, 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10rem;
+    position: relative;
+}
+
+.first-div-text-footer{
+    margin-left: 36rem;
+}
