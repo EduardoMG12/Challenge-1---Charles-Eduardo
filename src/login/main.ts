@@ -18,6 +18,7 @@ const messageErrorFormulary1 = document.getElementById("message-error-formulary1
 const messageErrorFormulary2 = document.getElementById("message-error-formulary2") as HTMLSpanElement
 
 document.getElementById("input-username")!.onfocus = () => animationSvgOnTranslateLeft("input-username", "icon-svg-user")
+
 document.getElementById("input-password")!.onfocus = () => animationSvgOnTranslateLeft("input-password", "icon-svg-password")
 
 
@@ -65,7 +66,7 @@ function hiddenErroInput(input: HTMLInputElement, span?: HTMLSpanElement) {
 }
 
 const validateInputForm = (input: HTMLInputElement, span?: HTMLSpanElement) => {
-    if (input.value.trim().length !== input.value.length) { 
+    if (input.value.trim().length !== input.value.length) {
         showErroInput(input, "The field must not contain any spaces before or after the value", span)
         return false
     }
@@ -120,43 +121,41 @@ function validateLocalStorage() {
     if (userRegistred) {
         const recoveryUserRegistred: IUser = JSON.parse(userRegistred)
         login(recoveryUserRegistred)
+    } else {
+        messageErrorFormulary1.classList.add("message-error-formulary-visible")
+        messageErrorFormulary2.classList.add("message-error-formulary-visible")
+        hiddenErroInput(usernameInput, usernameInputError)
+        hiddenErroInput(userPasswordInput, passwordInputError)
     }
 
 }
 
 function login(recoveryUserRegistred: IUser) {
     const functionArray = [validateInputForm(usernameInput, usernameInputError), validateInputForm(userPasswordInput, passwordInputError)]
+    // amanha arrumar toda essa logica, se cosnseguir comecar a pagina 3 
     if (functionArray.every((res) => res)) {
-        if (recoveryUserRegistred.firstName.concat(recoveryUserRegistred.lastName) === usernameInput.value || recoveryUserRegistred.email === usernameInput.value) {
-            if (recoveryUserRegistred.password === userPasswordInput.value) {
+        if ((recoveryUserRegistred.firstName.concat(recoveryUserRegistred.lastName) === usernameInput.value || recoveryUserRegistred.email === usernameInput.value) && recoveryUserRegistred.password === userPasswordInput.value) {
+                // login bem sucedido
                 messageErrorFormulary1.classList.remove("message-error-formulary-visible")
                 messageErrorFormulary2.classList.remove("message-error-formulary-visible")
+                hiddenErroInput(usernameInput, usernameInputError)
+                hiddenErroInput(userPasswordInput, passwordInputError)
+
                 window.location.href = "/src/home/index.html"
-            }
-            if ((usernameInput.value === "") && (userPasswordInput.value === "")) {
-                messageErrorFormulary1.classList.remove("message-error-formulary-visible")
-                messageErrorFormulary2.classList.remove("message-error-formulary-visible")
-
-            }
-
-            else {
-                messageErrorFormulary1.classList.add("message-error-formulary-visible")
-                messageErrorFormulary2.classList.remove("message-error-formulary-visible")
-                usernameInput.classList.add("input-error")
-                userPasswordInput.classList.add("input-error")
-            }
         }
         else {
             messageErrorFormulary1.classList.add("message-error-formulary-visible")
             messageErrorFormulary2.classList.add("message-error-formulary-visible")
-            usernameInput.classList.add("input-error")
-            userPasswordInput.classList.add("input-error")
+            usernameInput.classList.remove("input-error")
+            userPasswordInput.classList.remove("input-error")
         }
-        messageErrorFormulary1.classList.remove("message-error-formulary-visible")
-        messageErrorFormulary2.classList.remove("message-error-formulary-visible")
-        usernameInput.classList.remove("input-error")
-        userPasswordInput.classList.remove("input-error")
-
-
     }
+    else {
+        messageErrorFormulary1.classList.add("message-error-formulary-visible")
+        messageErrorFormulary2.classList.add("message-error-formulary-visible")
+        usernameInput.classList.add("input-error")
+        userPasswordInput.classList.add("input-error")
+    }
+
 }
+
