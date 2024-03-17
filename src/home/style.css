@@ -58,9 +58,6 @@ main {
   align-items: center;
 }
 
-.icon-weather {
-}
-
 .text-degrees {
   font-size: 4.8rem;
 }
@@ -114,73 +111,72 @@ main {
   justify-content: center;
 }
 
-.text-footer{
-    font-size: 1.2rem;
-    line-height: 1.5rem;
-    text-align: end;
+.text-footer {
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  text-align: end;
 }
 
-.border-white{
-    width: 0.1rem;
-    height: 6.1rem;
-    background-color: rgba(255, 255, 255, 1);
-    margin-left: 2.9rem;
+.border-white {
+  width: 0.1rem;
+  height: 6.1rem;
+  background-color: rgba(255, 255, 255, 1);
+  margin-left: 2.9rem;
 }
 
-.container-refresh-page-in{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-    text-align: end;
-    gap: 3rem;
+.container-refresh-page-in {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  text-align: end;
+  gap: 3rem;
 }
 
-.seconds-number{
-    font-size: 4.8rem;
-    font-weight: 700;
-    line-height: 6rem;
-    
+.seconds-number {
+  font-size: 4.8rem;
+  font-weight: 700;
+  line-height: 6rem;
 }
 
-.seconds-text{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    line-height: 1.7rem;
+.seconds-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.7rem;
 }
 
-.container-buttons-footer{
-    height: 100%;
-   display: flex; 
-   align-items: center;
-   justify-content: center;
+.container-buttons-footer {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .container-buttons-footer p {
-    width: 100%;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
-.button-logout-continue-navegation{
-    background-color: rgba(255, 255, 255, 1);
-    color: rgba(193, 50, 22, 1);
-    height: 100%;
-    padding-inline: 2rem;
-    font-size: 1.2rem;
-    font-weight: 400;
-    line-height: 1.5rem;
-    cursor: pointer;
+.button-logout-continue-navegation {
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(193, 50, 22, 1);
+  height: 100%;
+  padding-inline: 2rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  cursor: pointer;
 }
 
-.button-logout{
-    height: 100%;
-    padding-inline: 2rem;
-    font-size: 1.2rem;
-    font-weight: 400;
-    line-height: 1.5rem;
-    cursor: pointer;
+.button-logout {
+  height: 100%;
+  padding-inline: 2rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  cursor: pointer;
 }
