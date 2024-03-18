@@ -34,10 +34,76 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var _a;
 var buttonLogout = document.querySelector(".button-logout");
 var fieldSeconds = document.querySelector(".seconds-number");
 var fieldHoursAClock = document.querySelector(".hours-a-clock");
+var cityAndState = document.querySelector(".city-and-state");
 var fieldDate = document.querySelector(".hours-a-clock-description");
+var textDegrees = document.querySelector(".text-degrees");
+var APIkey = "b5636064c57bd8c4dd2648be4f7565db";
+var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=".concat(getLocalStorage() ? (_a = getLocalStorage()) === null || _a === void 0 ? void 0 : _a.city : "brasilia", "&appid=").concat(APIkey, "&units=metric&lang=pt");
+function getLocalStorage() {
+    var userRegistred = localStorage.getItem("user");
+    if (userRegistred) {
+        var recoveryUserRegistred = JSON.parse(userRegistred);
+        return recoveryUserRegistred;
+    }
+}
+function requestCityWeather() {
+    return __awaiter(this, void 0, void 0, function () {
+        var response, data, error_1;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 3, , 4]);
+                    return [4 /*yield*/, fetch(requestUrl)];
+                case 1:
+                    response = _a.sent();
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok: ".concat(response.status));
+                    }
+                    return [4 /*yield*/, response.json()];
+                case 2:
+                    data = _a.sent();
+                    return [2 /*return*/, data];
+                case 3:
+                    error_1 = _a.sent();
+                    console.error('Error fetching data:', error_1);
+                    return [2 /*return*/, false];
+                case 4: return [2 /*return*/];
+            }
+        });
+    });
+}
+function getWeather() {
+    return __awaiter(this, void 0, void 0, function () {
+        var cityWeather, error_2;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, requestCityWeather()];
+                case 1:
+                    cityWeather = _a.sent();
+                    if (cityWeather) {
+                        cityAndState.innerHTML = "".concat(getLocalStorage().city, " ").concat(getLocalStorage().country.toUpperCase());
+                        textDegrees.innerHTML = "".concat(cityWeather.main.temp.toFixed(0).toString(), "\u00BA");
+                        console.log(cityWeather);
+                    }
+                    else {
+                    }
+                    return [3 /*break*/, 3];
+                case 2:
+                    error_2 = _a.sent();
+                    console.error(error_2);
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
+            }
+        });
+    });
+}
+getWeather();
 //trying add weather api
 // and if plenty of time don't forget implement login validation in home page, for example if user is loged don't show login page again, show only user click in logout
 var daysWeek = [
