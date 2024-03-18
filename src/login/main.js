@@ -82,36 +82,36 @@ function validateLocalStorage() {
         var recoveryUserRegistred = JSON.parse(userRegistred);
         login(recoveryUserRegistred);
     }
+    else {
+        messageErrorFormulary1.classList.add("message-error-formulary-visible");
+        messageErrorFormulary2.classList.add("message-error-formulary-visible");
+        hiddenErroInput(usernameInput, usernameInputError);
+        hiddenErroInput(userPasswordInput, passwordInputError);
+    }
 }
 function login(recoveryUserRegistred) {
     var functionArray = [validateInputForm(usernameInput, usernameInputError), validateInputForm(userPasswordInput, passwordInputError)];
+    // amanha arrumar toda essa logica, se cosnseguir comecar a pagina 3 
     if (functionArray.every(function (res) { return res; })) {
-        if (recoveryUserRegistred.firstName.concat(recoveryUserRegistred.lastName) === usernameInput.value || recoveryUserRegistred.email === usernameInput.value) {
-            if (recoveryUserRegistred.password === userPasswordInput.value) {
-                messageErrorFormulary1.classList.remove("message-error-formulary-visible");
-                messageErrorFormulary2.classList.remove("message-error-formulary-visible");
-                window.location.href = "/src/home/index.html";
-            }
-            if ((usernameInput.value === "") && (userPasswordInput.value === "")) {
-                messageErrorFormulary1.classList.remove("message-error-formulary-visible");
-                messageErrorFormulary2.classList.remove("message-error-formulary-visible");
-            }
-            else {
-                messageErrorFormulary1.classList.add("message-error-formulary-visible");
-                messageErrorFormulary2.classList.remove("message-error-formulary-visible");
-                usernameInput.classList.add("input-error");
-                userPasswordInput.classList.add("input-error");
-            }
+        if ((recoveryUserRegistred.firstName.concat(recoveryUserRegistred.lastName) === usernameInput.value || recoveryUserRegistred.email === usernameInput.value) && recoveryUserRegistred.password === userPasswordInput.value) {
+            // login bem sucedido
+            messageErrorFormulary1.classList.remove("message-error-formulary-visible");
+            messageErrorFormulary2.classList.remove("message-error-formulary-visible");
+            hiddenErroInput(usernameInput, usernameInputError);
+            hiddenErroInput(userPasswordInput, passwordInputError);
+            window.location.href = "/src/home/index.html";
         }
         else {
             messageErrorFormulary1.classList.add("message-error-formulary-visible");
             messageErrorFormulary2.classList.add("message-error-formulary-visible");
-            usernameInput.classList.add("input-error");
-            userPasswordInput.classList.add("input-error");
+            usernameInput.classList.remove("input-error");
+            userPasswordInput.classList.remove("input-error");
         }
-        messageErrorFormulary1.classList.remove("message-error-formulary-visible");
-        messageErrorFormulary2.classList.remove("message-error-formulary-visible");
-        usernameInput.classList.remove("input-error");
-        userPasswordInput.classList.remove("input-error");
+    }
+    else {
+        messageErrorFormulary1.classList.add("message-error-formulary-visible");
+        messageErrorFormulary2.classList.add("message-error-formulary-visible");
+        usernameInput.classList.add("input-error");
+        userPasswordInput.classList.add("input-error");
     }
 }

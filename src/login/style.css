@@ -48,6 +48,13 @@
   font-size: 3rem;
 }
 
+.container-message-error-formulary{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 .message-error-formulary {
   color: #e9b425;
   font-size: 1.6rem;
@@ -61,10 +68,6 @@
   visibility: visible;
 }
 
-#container-formulary {
-  position: absolute;
-  bottom: -5.8rem;
-}
 
 .wrapper-input {
   display: flex;
@@ -112,7 +115,7 @@
   justify-content: center;
   align-items: self-start;
   gap: 3.3rem;
-  margin-bottom: 11.5rem;
+  margin-bottom: 4.7rem;
 }
 
 .input {
